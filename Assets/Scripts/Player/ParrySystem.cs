@@ -104,6 +104,7 @@ public class ParrySystem : MonoBehaviour
     {
         onParryFail.Invoke();
         ComboSystem.Instance.RegisterParryFail();
+        PlayerHealth.Instance.TakeDamage();
         Debug.Log("PARRY FAIL");
     }
 
