@@ -95,6 +95,7 @@ public class ParrySystem : MonoBehaviour
     {
         onParrySuccess.Invoke();
         HitStop.Instance.Stop(0.08f);
+        CameraShake.Instance.AddTrauma(0.4f);
         Debug.Log("PARRY SUCCESS");
     }
 
