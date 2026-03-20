@@ -523,6 +523,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaveManager
   waves:
   - {fileID: 11400000, guid: 4eb50d9f0ddc4d341b886a2db4f9b423, type: 2}
+  - {fileID: 11400000, guid: c346df783b870e049857115a9a040f54, type: 2}
+  - {fileID: 11400000, guid: 00e13d97cb421444b8382887af0ef799, type: 2}
   spawnPoint: {fileID: 1579346397}
   playerTransform: {fileID: 230401912}
   onWaveStarted:
