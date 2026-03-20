@@ -94,6 +94,7 @@ public class ParrySystem : MonoBehaviour
     private void TriggerParrySuccess()
     {
         onParrySuccess.Invoke();
+        HitStop.Instance.Stop(0.08f);
         Debug.Log("PARRY SUCCESS");
     }
 
