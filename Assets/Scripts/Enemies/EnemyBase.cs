@@ -22,11 +22,19 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual IEnumerator AttackLoop()
     {
-        while (true)
+        int attackCount = 0;
+        int maxAttacks = 3;
+
+        while (attackCount < maxAttacks)
         {
             yield return new WaitForSeconds(timeBetweenAttacks);
             yield return StartCoroutine(DoAttackSequence());
+            attackCount++;
         }
+
+        Debug.Log($"{gameObject.name} finished — reporting dead");
+        WaveManager.Instance.ReportEnemyDead();
+        Destroy(gameObject);
     }
 
     protected virtual IEnumerator DoAttackSequence()
