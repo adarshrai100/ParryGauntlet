@@ -74,5 +74,16 @@ public class EnemyBase : MonoBehaviour
         Debug.Log($"{gameObject.name} recovering");
     }
 
+    public void SetSpeedMultiplier(float multiplier)
+    {
+        timeBetweenAttacks /= multiplier;
+        telegraphDuration /= multiplier;
+    }
+
+    public void SetPlayerParrySystem(ParrySystem parrySystem)
+    {
+        playerParrySystem = parrySystem;
+    }
+
     public EnemyState GetCurrentState() => currentState;
 }
