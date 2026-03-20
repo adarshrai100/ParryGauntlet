@@ -96,12 +96,14 @@ public class ParrySystem : MonoBehaviour
         onParrySuccess.Invoke();
         HitStop.Instance.Stop(0.08f);
         CameraShake.Instance.AddTrauma(0.4f);
+        ComboSystem.Instance.RegisterParrySuccess();
         Debug.Log("PARRY SUCCESS");
     }
 
     private void TriggerParryFail()
     {
         onParryFail.Invoke();
+        ComboSystem.Instance.RegisterParryFail();
         Debug.Log("PARRY FAIL");
     }
 

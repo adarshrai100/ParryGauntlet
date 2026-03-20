@@ -267,6 +267,7 @@ GameObject:
   - component: {fileID: 263254374}
   - component: {fileID: 263254373}
   - component: {fileID: 263254376}
+  - component: {fileID: 263254377}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -392,6 +393,22 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &263254377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263254372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b2c2c31da4a0f41b0c19a6dae17144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShake
+  traumaDecaySpeed: 1.5
+  maxAngle: 3
+  maxOffsetX: 0.3
+  maxOffsetY: 0.3
 --- !u!1 &1663403750
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,6 +507,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1905072933}
   - component: {fileID: 1905072932}
+  - component: {fileID: 1905072934}
   m_Layer: 0
   m_Name: GameSystems
   m_TagString: Untagged
@@ -524,6 +542,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1905072934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905072931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 658770ab87a0e6b4880c34bc665450f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ComboSystem
+  comboMultiplierThreshold: 5
+  maxMultiplier: 8
+  onComboUpdated:
+    m_PersistentCalls:
+      m_Calls: []
+  onMultiplierChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onComboReset:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
