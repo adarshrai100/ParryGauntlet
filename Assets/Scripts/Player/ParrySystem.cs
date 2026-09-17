@@ -7,6 +7,7 @@ public class ParrySystem : MonoBehaviour
     [Header("Parry Settings")]
     [SerializeField] private float parryWindow = 0.2f;
     [SerializeField] private int inputBufferFrames = 10;
+    [SerializeField] private Animator animator;
 
     [Header("Events")]
     public UnityEvent onParrySuccess;
@@ -97,6 +98,7 @@ public class ParrySystem : MonoBehaviour
         HitStop.Instance.Stop(0.08f);
         CameraShake.Instance.AddTrauma(0.4f);
         ComboSystem.Instance.RegisterParrySuccess();
+        if (animator != null) animator.SetTrigger("Parry");
         Debug.Log("PARRY SUCCESS");
     }
 
