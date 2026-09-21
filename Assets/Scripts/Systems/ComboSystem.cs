@@ -13,6 +13,7 @@ public class ComboSystem : MonoBehaviour
     public UnityEvent<int> onComboUpdated;
     public UnityEvent<int> onMultiplierChanged;
     public UnityEvent onComboReset;
+    public UnityEvent<int> onScoreUpdated;
 
     private int currentCombo = 0;
     private int currentMultiplier = 1;
@@ -32,10 +33,12 @@ public class ComboSystem : MonoBehaviour
     {
         currentCombo++;
         totalScore += 100 * currentMultiplier;
+      
 
         UpdateMultiplier();
 
         onComboUpdated.Invoke(currentCombo);
+        onScoreUpdated.Invoke(totalScore);
 
         Debug.Log($"Combo: {currentCombo} | Multiplier: x{currentMultiplier} | Score: {totalScore}");
     }

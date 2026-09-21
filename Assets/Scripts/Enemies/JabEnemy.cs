@@ -1,4 +1,4 @@
-using UnityEngine;
+    using UnityEngine;
 
 public class JabEnemy : EnemyBase
 {
@@ -21,6 +21,8 @@ public class JabEnemy : EnemyBase
 
     protected override void OnAttackStart()
     {
+        base.OnAttackStart();
+
         Debug.Log("JAB — fast attack, tight parry window");
     }
 }

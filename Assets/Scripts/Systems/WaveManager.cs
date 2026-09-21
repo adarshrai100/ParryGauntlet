@@ -13,6 +13,7 @@ public class WaveManager : MonoBehaviour
     [Header("Spawn Settings")]
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private Transform playerTransform;
+    [SerializeField] private float spawnSpacing = 1.5f;
 
     [Header("Events")]
     public UnityEvent<int> onWaveStarted;
@@ -22,6 +23,7 @@ public class WaveManager : MonoBehaviour
     private int currentWaveIndex = 0;
     private int enemiesAlive = 0;
     private bool isSpawning = false;
+    private int currentWaveSpawnIndex = 0;
 
     private void Awake()
     {
@@ -48,6 +50,7 @@ public class WaveManager : MonoBehaviour
         }
 
         WaveConfigSO wave = waves[waveIndex];
+        currentWaveSpawnIndex = 0;
         isSpawning = true;
 
         Debug.Log($"Wave {waveIndex + 1} starting: {wave.waveName}");
@@ -75,17 +78,29 @@ public class WaveManager : MonoBehaviour
             ? spawnPoint.position
             : new Vector3(3f, 0f, 0f);
 
+        // Each newly spawned enemy starts farther to the right.
+        spawnPos.x += currentWaveSpawnIndex * spawnSpacing;
+
         GameObject enemy = Instantiate(prefab, spawnPos, Quaternion.identity);
 
         EnemyBase enemyBase = enemy.GetComponent<EnemyBase>();
+
         if (enemyBase != null)
         {
             enemyBase.SetSpeedMultiplier(speedMultiplier);
-            enemyBase.SetPlayerParrySystem(playerTransform.GetComponent<ParrySystem>());
+            enemyBase.SetPlayerParrySystem(
+                playerTransform.GetComponent<ParrySystem>()
+            );
+
+            Debug.Log($"ParrySystem assigned: {playerTransform.GetComponent<ParrySystem>() != null}");
+        }
+        else
+        {
+            Debug.Log("EnemyBase component not found on spawned prefab");
         }
 
         enemiesAlive++;
-        Debug.Log($"Spawned {prefab.name} — enemies alive: {enemiesAlive}");
+        currentWaveSpawnIndex++;
     }
 
     public void ReportEnemyDead()

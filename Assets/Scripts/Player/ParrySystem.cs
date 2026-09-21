@@ -17,6 +17,7 @@ public class ParrySystem : MonoBehaviour
     private bool isParryWindowOpen = false;
     private int bufferFramesRemaining = 0;
     private bool parryInputBuffered = false;
+    private EnemyBase currentAttackingEnemy;
 
     private void Update()
     {
@@ -55,8 +56,9 @@ public class ParrySystem : MonoBehaviour
         }
     }
 
-    public void OpenParryWindow()
+    public void OpenParryWindow(EnemyBase attackingEnemy)
     {
+        currentAttackingEnemy = attackingEnemy;
         StartCoroutine(ParryWindowRoutine());
     }
 
@@ -95,10 +97,20 @@ public class ParrySystem : MonoBehaviour
     private void TriggerParrySuccess()
     {
         onParrySuccess.Invoke();
+
+        if (currentAttackingEnemy != null)
+        {
+            currentAttackingEnemy.TakeParryDamage();
+            currentAttackingEnemy = null;
+        }
+
         HitStop.Instance.Stop(0.08f);
         CameraShake.Instance.AddTrauma(0.4f);
         ComboSystem.Instance.RegisterParrySuccess();
-        if (animator != null) animator.SetTrigger("Parry");
+
+        if (animator != null)
+            animator.SetTrigger("Parry");
+
         Debug.Log("PARRY SUCCESS");
     }
 

@@ -27,8 +27,15 @@ public class GameUI : MonoBehaviour
 
     public void UpdateScore(int score)
     {
-        if (scoreText != null)
-            scoreText.text = $"Score: {score}";
+        Debug.Log($"GAME UI UPDATE SCORE CALLED: {score}");
+
+        if (scoreText == null)
+        {
+            Debug.LogError("GAME UI: scoreText is NULL!");
+            return;
+        }
+
+        scoreText.text = $"Score: {score}";
     }
 
     public void UpdateCombo(int combo)
