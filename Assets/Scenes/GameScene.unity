@@ -1701,6 +1701,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3753280696558789360, guid: 4acc49446eaab264786cdc7e28e4f460, type: 3}
+      propertyPath: activeIndicator
+      value: 
+      objectReference: {fileID: 1494193105}
+    - target: {fileID: 3753280696558789360, guid: 4acc49446eaab264786cdc7e28e4f460, type: 3}
       propertyPath: playerParrySystem
       value: 
       objectReference: {fileID: 230401908}
@@ -1713,6 +1717,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4acc49446eaab264786cdc7e28e4f460, type: 3}
+--- !u!1 &1494193105 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2178520476275733516, guid: 4acc49446eaab264786cdc7e28e4f460, type: 3}
+  m_PrefabInstance: {fileID: 1494193104}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1538838692
 GameObject:
   m_ObjectHideFlags: 0
@@ -1907,6 +1916,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 00e13d97cb421444b8382887af0ef799, type: 2}
   spawnPoint: {fileID: 1579346397}
   playerTransform: {fileID: 230401912}
+  spawnSpacing: 1.5
   onWaveStarted:
     m_PersistentCalls:
       m_Calls:

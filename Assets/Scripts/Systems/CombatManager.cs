@@ -28,6 +28,8 @@ public class CombatManager : MonoBehaviour
             return false;
 
         currentAttacker = enemy;
+        currentAttacker.SetActiveIndicator(true);
+
         return true;
     }
 
@@ -35,6 +37,7 @@ public class CombatManager : MonoBehaviour
     {
         if (currentAttacker == enemy)
         {
+            currentAttacker.SetActiveIndicator(false);
             currentAttacker = null;
         }
     }

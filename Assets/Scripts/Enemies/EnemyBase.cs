@@ -13,6 +13,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] protected ParrySystem playerParrySystem;
     [SerializeField] protected Animator animator;
     [SerializeField] protected Transform playerTransform;
+    [SerializeField] protected GameObject activeIndicator;
 
     [Header("Movement Settings")]
     [SerializeField] protected float moveSpeed = 2f;
@@ -214,4 +215,12 @@ public class EnemyBase : MonoBehaviour
     }
 
     public EnemyState GetCurrentState() => currentState;
+
+    public void SetActiveIndicator(bool active)
+    {
+        if (activeIndicator != null)
+        {
+            activeIndicator.SetActive(active);
+        }
+    }
 }
